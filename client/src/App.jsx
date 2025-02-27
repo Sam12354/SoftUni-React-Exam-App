@@ -5,6 +5,7 @@ import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import Sell from "./components/Sell/Sell"
 import EditProduct from "./components/editproduct/EditProduct"
+import Catalog from "./components/catalog/Catalog"
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
             <Register />
             <Sell />
             <EditProduct />
+            <Catalog />
         </div>
     )
 }
