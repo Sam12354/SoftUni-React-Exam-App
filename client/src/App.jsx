@@ -24,7 +24,7 @@ function App() {
                 <Route path="/catalog/:itemId/edit" element={<EditProduct />} />
                 <Route path="/catalog/:itemId/details" element={<Details />} />
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

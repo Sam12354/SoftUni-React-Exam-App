@@ -1,13 +1,13 @@
 export default function Sell() {
     return (
-        <section className="page-section bg-light d-flex align-items-center justify-content-center vh-100"
+        <section className="page-section bg-light d-flex align-items-center justify-content-center min-vh-100 py-5"
         style={{ background: "url('/images/header-bg.jpg') center/cover no-repeat" }}>
-            <div className="container">
+            <div className="container pt-5">
                 <div className="text-center">
                     <h2 className="section-heading text-uppercase" style={{ color: "#ffc800" }}>Sell</h2>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="col-lg-6">
+                    <div className="col-12 col-md-8 col-lg-6">
                         <div className="card shadow p-4 bg-white">
                             <form action="/sell" method="POST">
                                 <div className="mb-3">
