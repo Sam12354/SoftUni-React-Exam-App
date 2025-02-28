@@ -32,6 +32,7 @@ app.use(express.urlencoded({extended: false}))
 app.use(cookieParser())
 
 app.use(authMiddleware)
+app.use(express.json());
 app.use(routes)
 
 app.listen(7777, () => console.log('Server is running on http://localhost:7777'))

@@ -12,15 +12,15 @@ authController.get('/register', isGuest, (req, res) => {
 
 authController.post('/register', isGuest, async (req, res) => {
 
-    const { fullName, username, password, rePass } = req.body;
+    const { email, password, rePass } = req.body;
 
     try {
-        const token = await authService.register(fullName, username, password, rePass)
+        const token = await authService.register(email, password, rePass)
         res.cookie(AUTH_COOKIE_NAME, token, { httpOnly: true })
         res.redirect('/')
     } catch (err) {
         const error = getErrorMassage(err)
-        res.render('auth/register', { title: 'Register Page', fullName, username, error })
+        res.render('auth/register', { title: 'Register Page', email, error })
     }
 
 })
@@ -31,15 +31,15 @@ authController.get('/login', isGuest, (req, res) => {
 
 authController.post('/login', isGuest, async (req, res) => {
 
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     try {
-        const token = await authService.login(username, password) 
+        const token = await authService.login(email, password) 
         res.cookie(AUTH_COOKIE_NAME, token, { httpOnly: true })
         res.redirect('/')
     } catch (err) {
         const error = getErrorMassage(err)
-        res.render('auth/login', { title: 'Login Page', username, error })
+        res.render('auth/login', { title: 'Login Page', email, error })
     }
 
 })

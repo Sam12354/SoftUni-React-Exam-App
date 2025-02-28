@@ -5,22 +5,14 @@ const SALT_ROUNDS = 10
 
 const userSchema = new Schema({
 
-    username: {
+    email: {
         type: String,
-        required: [true, 'Username is required'],
-        minLength: [5, 'Username must be at least 5 characters long']
+        required: [true, 'Email is required'],
     },
-
-    fullName: {
-        type: String,
-        required: [true, 'fullName is required'],
-        validate: /^[A-Za-z]+ [A-Za-z]+$/
-    }, 
 
     password: {
         type: String, 
         required: [true, 'Password is required'],
-        minLength: [4, 'Password must be at least 4 characters long']
     }
 
 }) 

@@ -4,9 +4,9 @@ import bcrypt from 'bcrypt'
 
 export const authService = {
 
-    async register(fullName, username, password, rePass){
+    async register(email, password, rePass){
 
-        const user = await User.findOne({ $or: [{ fullName }, { username }] })
+        const user = await User.findOne({ email })
 
         if(password !== rePass){
             throw new Error('Passowrd missmatch')
@@ -17,8 +17,7 @@ export const authService = {
         }
 
         const newUser = await User.create({
-            fullName, 
-            username, 
+            email,
             password
         })
 
@@ -26,9 +25,9 @@ export const authService = {
 
     },
 
-    async login(username, password){
+    async login(email, password){
 
-        const user = await User.findOne({ username })
+        const user = await User.findOne({ email })
 
         if(!user){
             throw new Error('Invalid user or password')
@@ -47,8 +46,7 @@ export const authService = {
     async generateToken(user){
         const payLoad = {
             _id: user._id,
-            fullName: user.fullName,
-            username: user.username,
+            email: user._email
         }
 
         const headers = { expiresIn: '2h' }
@@ -62,13 +60,13 @@ export const authService = {
 export const getUserById = async (id) => {
     let user = await User.findById(id)
 
-    return user.username
+    return user.email
 }
 
 export const getAllUsersByIds = async (ids) => {
     let users = await User.find({ _id: { $in: ids } })
 
-    return users.map(userId => userId.fullName)
+    return users.map(userId => userId.email)
 
 }
 
