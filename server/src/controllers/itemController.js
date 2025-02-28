@@ -10,6 +10,7 @@ const routes = Router()
 routes.get('/catalog', async (req, res) => {
     try {
         const items = await itemService.getAll().lean()
+        
         res.render('item/catalog', { items, title: 'Catalog' })
     } catch (err) {
         const error = getErrorMassage(err)
