@@ -9,7 +9,7 @@ export default function Register() {
                 <div className="row justify-content-center">
                     <div className="col-lg-6">
                         <div className="card shadow p-4 bg-white">
-                            <form action="/register" method="POST">
+                            <form action="auth/register" method="POST">
                                 <div className="mb-3">
                                     <label htmlFor="email" className="form-label">Email Address</label>
                                     <input type="email" className="form-control" id="email" name="email" required />
