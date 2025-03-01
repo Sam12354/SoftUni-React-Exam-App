@@ -6,10 +6,6 @@ import { isAuth, isGuest } from '../middlewares/authMiddleware.js';
 
 const authController = Router();
 
-authController.get('/register', isGuest, (req, res) => {
-    res.render('auth/register', { title: 'Register Page' })
-})
-
 authController.post('/register', isGuest, async (req, res) => {
 
     const { email, password, rePass } = req.body;
@@ -17,17 +13,17 @@ authController.post('/register', isGuest, async (req, res) => {
     try {
         const token = await authService.register(email, password, rePass)
         res.cookie(AUTH_COOKIE_NAME, token, { httpOnly: true })
-        res.redirect('/')
+        res.json({ token })
     } catch (err) {
         const error = getErrorMassage(err)
-        res.render('auth/register', { title: 'Register Page', email, error })
+        res.status(400).json({ error });
     }
 
 })
 
-authController.get('/login', isGuest, (req, res) => {
-    res.render('auth/login', { title: 'Login Page' })
-})
+// authController.get('/login', isGuest, (req, res) => {
+//     res.json({ message: 'Login endpoint reached' });
+// })
 
 authController.post('/login', isGuest, async (req, res) => {
 
@@ -36,17 +32,16 @@ authController.post('/login', isGuest, async (req, res) => {
     try {
         const token = await authService.login(email, password) 
         res.cookie(AUTH_COOKIE_NAME, token, { httpOnly: true })
-        res.redirect('/')
+        res.json({ token });
     } catch (err) {
         const error = getErrorMassage(err)
-        res.render('auth/login', { title: 'Login Page', email, error })
+        res.status(400).json({ error });
     }
 
 })
 
 authController.get('/logout', isAuth, (req, res) => {
     res.clearCookie(AUTH_COOKIE_NAME)
-    res.redirect('/')
 })
 
 export default authController
