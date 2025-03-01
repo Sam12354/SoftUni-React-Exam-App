@@ -5,6 +5,7 @@ import 'dotenv/config'
 import cookieParser from 'cookie-parser';
 import routes from './routes.js';
 import { authMiddleware } from './middlewares/authMiddleware.js';
+import cors from 'cors';
 
 const app = express()
 
@@ -30,6 +31,11 @@ app.use('/static', express.static('src/public'))
 app.use(express.urlencoded({extended: false}))
 
 app.use(cookieParser())
+
+app.use(cors({ 
+    credentials: true, 
+    origin: 'http://localhost:5173' 
+}));
 
 app.use(authMiddleware)
 app.use(express.json());
