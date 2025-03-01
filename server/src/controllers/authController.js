@@ -6,6 +6,10 @@ import { isAuth, isGuest } from '../middlewares/authMiddleware.js';
 
 const authController = Router();
 
+authController.get('/register', isGuest, (req, res) => {
+    res.status(204).end(); 
+});
+
 authController.post('/register', isGuest, async (req, res) => {
 
     const { email, password, rePass } = req.body;
@@ -21,9 +25,9 @@ authController.post('/register', isGuest, async (req, res) => {
 
 })
 
-// authController.get('/login', isGuest, (req, res) => {
-//     res.json({ message: 'Login endpoint reached' });
-// })
+authController.get('/login', isGuest, (req, res) => {
+    res.status(204).end(); 
+});
 
 authController.post('/login', isGuest, async (req, res) => {
 
