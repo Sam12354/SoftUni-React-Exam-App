@@ -18,7 +18,7 @@ export default function Register() {
         }
 
         try {
-            await register(values.email, values.password)
+            await register(values.email, values.password, values.rePass)
             navigate('/')
         } catch (err) {
             setError(err.message);
@@ -75,7 +75,7 @@ export default function Register() {
                                     />
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100">Register</button>
-                                <p className="text-center mt-3">Already have an account? <a href="#login">Login here</a></p>
+                                <p className="text-center mt-3">Already have an account? <a href="#">Login here</a></p>
                             </form>
                         </div>
                     </div>

@@ -46,7 +46,7 @@ export const authService = {
     async generateToken(user){
         const payLoad = {
             _id: user._id,
-            email: user._email
+            email: user.email
         }
 
         const headers = { expiresIn: '2h' }

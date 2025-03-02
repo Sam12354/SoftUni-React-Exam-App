@@ -11,7 +11,7 @@ authController.get('/register', isGuest, (req, res) => {
 });
 
 authController.post('/register', isGuest, async (req, res) => {
-
+    // console.log(req.body)
     const { email, password, rePass } = req.body;
 
     try {
