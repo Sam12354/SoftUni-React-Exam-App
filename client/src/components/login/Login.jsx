@@ -36,7 +36,8 @@ export default function Login() {
                                     <label htmlFor="email" className="form-label">Email Address</label>
                                     <input type="email" 
                                     className="form-control" 
-                                    id="email" name="email" 
+                                    id="email" 
+                                    name="email" 
                                     value={values.email} 
                                     onChange={changeHandler}
                                     required 
@@ -47,7 +48,8 @@ export default function Login() {
                                     <input 
                                     type="password" 
                                     className="form-control" 
-                                    id="password" name="password" 
+                                    id="password" 
+                                    name="password" 
                                     value={values.password} 
                                     onChange={changeHandler}  
                                     required />

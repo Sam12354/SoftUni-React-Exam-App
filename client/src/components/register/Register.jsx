@@ -1,4 +1,32 @@
+import { useNavigate } from "react-router-dom"
+import { useRegister } from "../../hooks/useAuth.js"
+import { useForm } from "../../hooks/useForm"
+import { useState } from "react"
+
+const initialValues = { email: '', password: '', rePass: '' }
+
 export default function Register() {
+
+    const [error, setError] = useState('')
+    const register = useRegister()
+    const navigate = useNavigate()
+
+    const registerHandler = async (values) => {
+
+        if(values.password !== values.rePass){
+            return setError('Password missmatch!')
+        }
+
+        try {
+            await register(values.email, values.password)
+            navigate('/')
+        } catch (err) {
+            setError(err.message);
+        }
+    } 
+
+    const {values, changeHandler, onSubmit } = useForm(initialValues, registerHandler)
+
     return (
         <section className="page-section bg-light d-flex align-items-center justify-content-center vh-100"
         style={{ background: "url('/images/header-bg.jpg') center/cover no-repeat" }}>
@@ -9,18 +37,42 @@ export default function Register() {
                 <div className="row justify-content-center">
                     <div className="col-lg-6">
                         <div className="card shadow p-4 bg-white">
-                            <form action="auth/register" method="POST">
+                            <form onSubmit={onSubmit}>
                                 <div className="mb-3">
                                     <label htmlFor="email" className="form-label">Email Address</label>
-                                    <input type="email" className="form-control" id="email" name="email" required />
+                                    <input 
+                                    type="email" 
+                                    className="form-control" 
+                                    id="email" 
+                                    name="email" 
+                                    value={values.email} 
+                                    onChange={changeHandler}
+                                    required 
+                                    />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="password" className="form-label">Password</label>
-                                    <input type="password" className="form-control" id="password" name="password" required />
+                                    <input 
+                                    type="password" 
+                                    className="form-control" 
+                                    id="password" 
+                                    name="password" 
+                                    value={values.password} 
+                                    onChange={changeHandler}
+                                    required 
+                                    />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="confirmPassword" className="form-label">Repeat Password</label>
-                                    <input type="password" className="form-control" id="confirmPassword" name="confirmPassword" required />
+                                    <input 
+                                    type="password" 
+                                    className="form-control" 
+                                    id="confirmPassword" 
+                                    name="rePass" 
+                                    value={values.rePass} 
+                                    onChange={changeHandler}
+                                    required 
+                                    />
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100">Register</button>
                                 <p className="text-center mt-3">Already have an account? <a href="#login">Login here</a></p>
