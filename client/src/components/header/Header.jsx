@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom"
+import { AuthContext } from "../../contexts/AuthContext";
+import { useContext } from "react";
 
 export default function Header() {
+
+    const { isAuthenticated } = useContext(AuthContext)
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -12,12 +17,20 @@ export default function Header() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                            <Link className="nav-item nav-link" to="/personalCatalog">Profile</Link>
-                            <Link className="nav-item nav-link" to="/catalog">Catalog</Link>
-                            <Link className="nav-item nav-link" to="/create">Sell</Link>
-                            <Link className="nav-item nav-link" to="/login">Login</Link>
-                            <Link className="nav-item nav-link" to="#team">Logout</Link>
-                            <Link className="nav-item nav-link" to="/register">Register</Link>
+                            {isAuthenticated ? (
+                                <>
+                                <Link className="nav-item nav-link" to="/personalCatalog">Profile</Link>
+                                <Link className="nav-item nav-link" to="/create">Sell</Link>
+                                <Link className="nav-item nav-link" to="#logout">Logout</Link>
+                                </>
+                            ) : (
+                                <>
+                                <Link className="nav-item nav-link" to="/catalog">Catalog</Link>
+                                <Link className="nav-item nav-link" to="/login">Login</Link>
+                                <Link className="nav-item nav-link" to="/register">Register</Link>
+                                </>
+                            )
+                            }
                         </ul>
                     </div>
                 </div>
