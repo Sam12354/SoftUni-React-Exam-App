@@ -17,6 +17,8 @@ export function AuthContextProvider({ children }) {
             try {
                 const user = await requester.get("http://localhost:7777/me"); 
                 setAuthState(user);
+                // console.log(user);
+                
             } catch {
                 setAuthState(null); 
             }

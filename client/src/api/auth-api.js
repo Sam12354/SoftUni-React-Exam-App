@@ -5,7 +5,8 @@ const BASE_URL = "http://localhost:7777/auth"
 export const login = (email, password) => {
 
     const authData = requester.post(`${BASE_URL}/login`, { email, password })
-
+    // console.log(authData);
+    
     return authData
 }
 

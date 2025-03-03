@@ -28,7 +28,8 @@ export const authService = {
     async login(email, password){
 
         const user = await User.findOne({ email })
-
+        // console.log(user);
+        
         if(!user){
             throw new Error('Invalid user or password')
         }
@@ -39,7 +40,11 @@ export const authService = {
             throw new Error('Invalid user or password')
         }
 
-        return this.generateToken(user)
+        return { 
+            token: await this.generateToken(user), 
+            _id: user._id, 
+            email: user.email 
+        };
 
     },
 

@@ -30,19 +30,20 @@ authController.get('/login', isGuest, (req, res) => {
 });
 
 authController.post('/login', isGuest, async (req, res) => {
-
-    const { email, password } = req.body;
-
     try {
-        const token = await authService.login(email, password) 
-        res.cookie(AUTH_COOKIE_NAME, token, { httpOnly: true })
-        res.json({ token });
-    } catch (err) {
-        const error = getErrorMassage(err)
-        res.status(400).json({ error });
-    }
+        // console.log("Received login request", req.body)
+        const { email, password } = req.body;
 
-})
+        const { token, _id, email: userEmail } = await authService.login(email, password);
+
+        res.cookie(AUTH_COOKIE_NAME, token, { httpOnly: true });
+
+        res.json({ token, _id, email: userEmail });
+
+    } catch (err) {
+        res.status(400).json({ error: getErrorMassage(err) });
+    }
+});
 
 authController.get('/logout', isAuth, (req, res) => {
     res.clearCookie(AUTH_COOKIE_NAME)

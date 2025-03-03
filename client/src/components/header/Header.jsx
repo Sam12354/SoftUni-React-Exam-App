@@ -3,9 +3,11 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useContext } from "react";
 
 export default function Header() {
-
+    // console.log("Header render");
+    
     const { isAuthenticated } = useContext(AuthContext)
-
+    // console.log(isAuthenticated);
+    
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
