@@ -3,7 +3,7 @@ import requester from "./requester.js";
 const BASE_URL = "http://localhost:7777/item"
 
 export const getAll = async () => {
-    const result = await requester.get(BASE_URL);
+    const result = await requester.get(`${BASE_URL}/catalog`);
     // console.log(result); 
     return result; 
 };

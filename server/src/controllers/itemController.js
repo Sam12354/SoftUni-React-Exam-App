@@ -11,10 +11,9 @@ routes.get('/catalog', async (req, res) => {
     try {
         const items = await itemService.getAll().lean()
         
-        res.render('item/catalog', { items, title: 'Catalog' })
+        res.json(items)
     } catch (err) {
-        const error = getErrorMassage(err)
-        res.render('item/catalog', { title: 'Catalog', error })
+        res.status(400).json({ error: getErrorMassage(err) })
     }
 })
 
