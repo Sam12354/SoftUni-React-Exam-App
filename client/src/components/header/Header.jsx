@@ -19,6 +19,7 @@ export default function Header() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                            <Link className="nav-item nav-link" to="/catalog">Catalog</Link>
                             {isAuthenticated ? (
                                 <>
                                 <Link className="nav-item nav-link" to="/personalCatalog">Profile</Link>
@@ -27,7 +28,6 @@ export default function Header() {
                                 </>
                             ) : (
                                 <>
-                                <Link className="nav-item nav-link" to="/catalog">Catalog</Link>
                                 <Link className="nav-item nav-link" to="/login">Login</Link>
                                 <Link className="nav-item nav-link" to="/register">Register</Link>
                                 </>
