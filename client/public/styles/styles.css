@@ -11085,6 +11085,13 @@ header.masthead .masthead-heading {
   opacity: 0.3;
 }
 
+#portfolio .portfolio-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+
 .timeline {
   position: relative;
   padding: 0;

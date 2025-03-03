@@ -12,7 +12,9 @@ export default function CatalogItem({ _id, title, price, image }){
             </Link>
             <div className="portfolio-caption">
                 <div className="portfolio-caption-heading">{title}</div>
-                <div className="portfolio-caption-subheading text-muted">{price}</div>
+                <div className="portfolio-caption-subheading text-muted">
+                    <span className="fw-bold fs-5">${price}</span>
+                </div>
             </div>
         </div>
 
