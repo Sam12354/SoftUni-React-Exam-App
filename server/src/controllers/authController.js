@@ -46,6 +46,7 @@ authController.post('/login', isGuest, async (req, res) => {
 
 authController.get('/logout', isAuth, (req, res) => {
     res.clearCookie(AUTH_COOKIE_NAME)
+    res.status(204).end()
 })
 
 export default authController
