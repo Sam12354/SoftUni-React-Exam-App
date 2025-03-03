@@ -10,6 +10,7 @@ import Catalog from "./components/catalog/Catalog"
 import Sell from "./components/Sell/Sell"
 import { AuthContextProvider } from "./contexts/AuthContext"
 import RouteGuard from "./components/common/RouteGuard"
+import Logout from "./components/logout/Logout"
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/catalog" element={<Catalog />} />
+                    <Route path="/logout" element={<RouteGuard> <Logout /> </RouteGuard>} />
                     <Route path="/create" element={<RouteGuard> <Sell /> </RouteGuard>} />
                     <Route path="/personalCatalog" element={<RouteGuard> <PersonalCatalog /> </RouteGuard>} />
                     <Route path="/catalog/:itemId/edit" element={<RouteGuard> <EditProduct /> </RouteGuard>} />

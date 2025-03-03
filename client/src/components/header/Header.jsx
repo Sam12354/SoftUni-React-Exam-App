@@ -21,7 +21,7 @@ export default function Header() {
                                 <>
                                 <Link className="nav-item nav-link" to="/personalCatalog">Profile</Link>
                                 <Link className="nav-item nav-link" to="/create">Sell</Link>
-                                <Link className="nav-item nav-link" to="#logout">Logout</Link>
+                                <Link className="nav-item nav-link" to="/logout">Logout</Link>
                                 </>
                             ) : (
                                 <>
