@@ -19,18 +19,17 @@ routes.get('/catalog', async (req, res) => {
 })
 
 routes.get('/create', isAuth, async (req, res) => {
-    res.render('item/create', { title: 'Create Page' })
+    res.status(204).end(); 
 })
 
 routes.post('/create', isAuth, async (req, res) => {
     const item = req.body 
-    const data = req.user._id
+    const userId = req.user._id
     try {
-        await itemService.create(item, data)
-        res.redirect('/item/catalog')
+        const createdItem = await itemService.create(item, userId); 
+        res.json(createdItem);
     } catch (err) {
-        const error = getErrorMassage(err)
-        res.render('item/create', { item, title: 'Create Page', error })
+        res.status(400).json({ error: getErrorMassage(err) });
     }
 })
 

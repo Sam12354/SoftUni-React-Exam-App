@@ -14,7 +14,7 @@ export const getOne = async (itemId) => {
 };
 
 export const create = async (itemData) => {
-    const result = await requester.post(`${BASE_URL}`, itemData);
+    const result = await requester.post(`${BASE_URL}/create`, itemData);
 
     return result;
 };

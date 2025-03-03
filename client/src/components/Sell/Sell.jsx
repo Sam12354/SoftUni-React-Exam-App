@@ -6,7 +6,7 @@ const initialValues = {
     title: '',
     brand: '',
     price: '',
-    imageUrl: '',
+    image: '',
     description: '',
 }
 
@@ -79,7 +79,7 @@ export default function Sell() {
                                     className="form-control" 
                                     id="image" 
                                     name="image" 
-                                    value={values.imageUrl}
+                                    value={values.image}
                                     onChange={changeHandler}
                                     required 
                                     />
