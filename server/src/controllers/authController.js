@@ -15,12 +15,11 @@ authController.post('/register', isGuest, async (req, res) => {
     const { email, password, rePass } = req.body;
 
     try {
-        const token = await authService.register(email, password, rePass)
+        const { token, _id, email: userEmail } = await authService.register(email, password, rePass);
         res.cookie(AUTH_COOKIE_NAME, token, { httpOnly: true })
-        res.json({ token })
+        res.json({ token, _id, email: userEmail });
     } catch (err) {
-        const error = getErrorMassage(err)
-        res.status(400).json({ error });
+        res.status(400).json({ error: getErrorMassage(err) });
     }
 
 })

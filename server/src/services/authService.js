@@ -21,7 +21,11 @@ export const authService = {
             password
         })
 
-        return this.generateToken(newUser)
+        return { 
+            token: await this.generateToken(newUser), 
+            _id: newUser._id, 
+            email: newUser.email 
+        };
 
     },
 
