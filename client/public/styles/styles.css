@@ -11091,6 +11091,14 @@ header.masthead .masthead-heading {
   object-fit: cover;
 }
 
+.details-img {
+  width: 626px;
+  height: 417px;
+  object-fit: cover;
+}
+
+/* //tuk */
+
 .timeline {
   position: relative;
   padding: 0;

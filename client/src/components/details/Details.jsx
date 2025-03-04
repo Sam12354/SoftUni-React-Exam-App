@@ -27,7 +27,8 @@ export default function Details() {
                         <div className="col-lg-8">
                             <div className="details-content text-center d-flex flex-column align-items-center">
                                 <h2 className="text-uppercase">{item.title}</h2>
-                                <img className="img-fluid d-block mx-auto" src={item.image} alt="Project" />
+                                <img className="img-fluid d-block mx-auto details-img" src={item.image} alt="Project" />
+
                                 <p>
                                     {item.description}
                                 </p>
