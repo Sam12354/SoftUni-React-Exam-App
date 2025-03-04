@@ -38,7 +38,7 @@ routes.get('/:itemId/details', async (req, res) => {
     
     const isOwner = item.owner == req.user?._id
 
-    res.render('item/details', { item, title: 'Details Page', isOwner })
+    res.json({ item, isOwner });
 
 })
 

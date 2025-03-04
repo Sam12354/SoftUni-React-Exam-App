@@ -4,7 +4,7 @@ export default function CatalogItem({ _id, title, price, image }){
 
     return (
         <div className="portfolio-item">
-            <Link className="portfolio-link" to={`/details/${_id}`}>
+            <Link className="portfolio-link" to={`/${_id}/details`}>
                 <div className="portfolio-hover">
                     <div className="portfolio-hover-content"><i className="fas fa-plus fa-3x"></i></div>
                 </div>

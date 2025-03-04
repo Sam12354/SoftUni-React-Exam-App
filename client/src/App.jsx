@@ -26,7 +26,7 @@ function App() {
                     <Route path="/create" element={<RouteGuard> <Sell /> </RouteGuard>} />
                     <Route path="/personalCatalog" element={<RouteGuard> <PersonalCatalog /> </RouteGuard>} />
                     <Route path="/catalog/:itemId/edit" element={<RouteGuard> <EditProduct /> </RouteGuard>} />
-                    <Route path="/catalog/:itemId/details" element={<RouteGuard> <Details /> </RouteGuard>} />
+                    <Route path="/:itemId/details" element={<RouteGuard> <Details /> </RouteGuard>} />
                 </Routes>
             </div>
         </AuthContextProvider>

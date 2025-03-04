@@ -9,7 +9,7 @@ export const getAll = async () => {
 };
 
 export const getOne = async (itemId) => {
-    const result = await requester.get(`${BASE_URL}/${itemId}`);
+    const result = await requester.get(`${BASE_URL}/${itemId}/details`);
     return result;
 };
 
