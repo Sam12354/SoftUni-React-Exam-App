@@ -6,9 +6,9 @@ export default function Home() {
             <header className="masthead">
             <img src="/images/header-bg.jpg" alt="Background" className="header-img" />
                 <div className="container">
-                    <div className="masthead-subheading">Welcome To Our Studio!</div>
-                    <div className="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                    <Link className="btn btn-primary btn-xl text-uppercase" to="/catalog">Tell Me More</Link>
+                    <div className="masthead-subheading">Step Into Our Shopping Haven</div>
+                    <div className="masthead-heading text-uppercase">Gear Up For Big Deals!</div>
+                    <Link className="btn btn-primary btn-xl text-uppercase" to="/catalog">Discover Top Deals</Link>
                 </div>
             </header>
         </>
