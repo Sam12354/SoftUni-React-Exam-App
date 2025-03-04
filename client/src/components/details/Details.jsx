@@ -9,15 +9,13 @@ export default function Details() {
     const [data] = useGetOneItem(itemId);
     const item = data?.item || {};
     const isOwner = data?.isOwner || false;
-    console.log(isOwner);
     
-
     const navigate = useNavigate()
 
     const itemDeleteHandler = async () => {
         try {
             await remove(itemId)
-            navigate(`/${itemId}/details`);
+            navigate(`/catalog`);
         } catch (err) {
             console.log(err.message)
         }
@@ -48,8 +46,8 @@ export default function Details() {
                                                     <i className="fas fa-edit me-1"></i> Edit
                                                 </button>
                                             </Link>
-                                            <button className="btn btn-danger btn-xl text-uppercase mt-3" type="button">
-                                                <i onClick={itemDeleteHandler} className="fas fa-trash me-1"></i> Delete
+                                            <button onClick={itemDeleteHandler} className="btn btn-danger btn-xl text-uppercase mt-3" type="button">                                               
+                                                <i className="fas fa-trash me-1"></i> Delete
                                             </button>
                                         </>
                                         ) : (

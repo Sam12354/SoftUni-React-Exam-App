@@ -1,7 +1,5 @@
 import { itemService } from "../services/itemService.js"
 
-
-
 export const checkIsOwner = async (req, res, next) => {
     const itemId = req.params.itemId 
     const item = await itemService.getItem(itemId).lean()
@@ -10,7 +8,7 @@ export const checkIsOwner = async (req, res, next) => {
         return next()
     }
 
-    res.status(404).send('Not authorized')
+    res.status(403).json({ message: 'Not authorized' });
 }
 
 export const checkIsNotOwner = async (req, res, next) => {

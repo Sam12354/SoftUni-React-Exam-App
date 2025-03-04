@@ -43,15 +43,14 @@ routes.get('/:itemId/details', async (req, res) => {
 
 })
 
-routes.get('/:itemId/delete', checkIsOwner, isAuth, async (req, res) => {
+routes.get('/:itemId/delete', isAuth, checkIsOwner, async (req, res) => {
 
     const itemId = req.params.itemId 
     try {
-        await itemService.remove(itemId)
-        res.redirect('/item/catalog')
+        const item = await itemService.remove(itemId)
+        res.json(item)
     } catch (err) {
-        const error = getErrorMassage(err)
-        res.render('item/create', { title: 'Details Page', error })
+        res.status(400).json({ error: getErrorMassage(err) });
     }
 
 })
