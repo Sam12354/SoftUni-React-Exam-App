@@ -17,15 +17,16 @@ routes.get('/catalog', async (req, res) => {
     }
 })
 
-routes.get('/create', isAuth, async (req, res) => {
+routes.get('/create', async (req, res) => {
     res.status(204).end(); 
 })
 
-routes.post('/create', isAuth, async (req, res) => {
+routes.post('/create', async (req, res) => {
     const item = req.body 
     const userId = req.user._id
     try {
         const createdItem = await itemService.create(item, userId); 
+
         res.json(createdItem);
     } catch (err) {
         res.status(400).json({ error: getErrorMassage(err) });

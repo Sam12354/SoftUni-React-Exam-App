@@ -11091,7 +11091,6 @@ header.masthead .masthead-heading {
   object-fit: cover;
 }
 
-
 .timeline {
   position: relative;
   padding: 0;
@@ -11276,6 +11275,24 @@ header.masthead .masthead-heading {
 .img-brand {
   height: 2.75rem;
 }
+
+@media (max-width: 768px) {
+  .details-content {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .details-content img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .details-content .d-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 
 section#contact {
   background-color: #212529;

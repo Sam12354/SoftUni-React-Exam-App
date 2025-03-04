@@ -7,7 +7,7 @@ export default function RouteGuard({children}){
     const { isAuthenticated } = useContext(AuthContext)
 
     if(!isAuthenticated){
-        return <Navigate to="/auth/login" />
+        return <Navigate to="/login" />
     }
 
     return (
