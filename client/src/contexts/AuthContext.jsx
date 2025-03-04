@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import requester from "../api/requester.js"; 
+import usePersistedState from "../hooks/usePersistedState.js";
 
 export const AuthContext = createContext({
     userId: '',
@@ -10,7 +11,7 @@ export const AuthContext = createContext({
 });
 
 export function AuthContextProvider({ children }) {
-    const [authState, setAuthState] = useState(null);
+    const [authState, setAuthState] = usePersistedState('auth', null);
 
     useEffect(() => {
         async function fetchUser() {
