@@ -17,6 +17,7 @@ export function AuthContextProvider({ children }) {
             try {
                 const user = await requester.get("http://localhost:7777/me"); 
                 setAuthState(user);
+                // console.log(authState)
 
             } catch {
                 setAuthState(null); 
@@ -41,6 +42,7 @@ export function AuthContextProvider({ children }) {
         changeAuthState,
         logout
     };
+
 
     return <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>;
 }
