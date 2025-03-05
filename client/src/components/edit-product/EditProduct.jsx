@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router"
 import { useGetOneItem } from "../../hooks/useService"
 import { useForm } from "../../hooks/useForm"
-import { getOne, update } from "../../api/api"
-import { useEffect, useState } from "react"
+import { update } from "../../api/api"
+import { useEffect } from "react"
 
 const initialValues = {
     title: '',

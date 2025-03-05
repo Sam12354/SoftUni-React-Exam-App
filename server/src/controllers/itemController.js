@@ -55,16 +55,16 @@ routes.delete('/:itemId', isAuth, checkIsOwner, async (req, res) => {
 
 })
 
-routes.get('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
-    const itemId = req.params.itemId 
-    try {
-        const item = await itemService.getById(itemId).lean()
+// routes.get('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
+//     const itemId = req.params.itemId 
+//     try {
+//         const item = await itemService.getById(itemId).lean()
         
-        res.json(item)
-    } catch (err) {
-        res.status(400).json({ error: getErrorMassage(err) });
-    }
-})
+//         res.json(item)
+//     } catch (err) {
+//         res.status(400).json({ error: getErrorMassage(err) });
+//     }
+// })
 
 routes.put('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
     const itemId = req.params.itemId 
