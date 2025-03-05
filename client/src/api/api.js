@@ -20,7 +20,7 @@ export const create = async (itemData) => {
 };
 
 export const remove = async (itemId) => {
-    return await requester.delete(`${BASE_URL}/${itemId}/delete`)
+    return await requester.delete(`${BASE_URL}/${itemId}`)
 }
 
 export const update = async (itemId, itemData) => {

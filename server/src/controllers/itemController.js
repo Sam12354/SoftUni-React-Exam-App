@@ -43,7 +43,7 @@ routes.get('/:itemId/details', async (req, res) => {
 
 })
 
-routes.get('/:itemId/delete', isAuth, checkIsOwner, async (req, res) => {
+routes.delete('/:itemId', isAuth, checkIsOwner, async (req, res) => {
 
     const itemId = req.params.itemId 
     try {
