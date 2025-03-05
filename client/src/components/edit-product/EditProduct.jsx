@@ -20,7 +20,7 @@ export default function EditProduct() {
         { ...initialValues, ...item }, 
         async (values) => {
             await update(itemId, values);
-            navigate(`/catalog/${itemId}/details`); // da go doopravq
+            navigate(`/${itemId}`); // da go doopravq
         }
     );
 

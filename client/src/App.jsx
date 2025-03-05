@@ -25,8 +25,8 @@ function App() {
                     <Route path="/logout" element={<RouteGuard> <Logout /> </RouteGuard>} />
                     <Route path="/create" element={<RouteGuard> <Sell /> </RouteGuard>} />
                     <Route path="/personalCatalog" element={<RouteGuard> <PersonalCatalog /> </RouteGuard>} />
-                    <Route path="/catalog/:itemId/edit" element={<RouteGuard> <EditProduct /> </RouteGuard>} />
-                    <Route path="/:itemId/details" element={<RouteGuard> <Details /> </RouteGuard>} />
+                    <Route path="/:itemId/edit" element={<RouteGuard> <EditProduct /> </RouteGuard>} />
+                    <Route path="/:itemId" element={<RouteGuard> <Details /> </RouteGuard>} />
                 </Routes>
             </div>
         </AuthContextProvider>

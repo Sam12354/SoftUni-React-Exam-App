@@ -33,8 +33,8 @@ routes.post('/create', async (req, res) => {
     }
 })
 
-routes.get('/:itemId/details', async (req, res) => {
-
+routes.get('/:itemId', async (req, res) => {
+    //details
     const item = await itemService.getItem(req.params.itemId).lean()  
     
     const isOwner = item.owner == req.user?._id
