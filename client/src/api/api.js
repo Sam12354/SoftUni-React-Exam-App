@@ -24,5 +24,5 @@ export const remove = async (itemId) => {
 }
 
 export const update = async (itemId, itemData) => {
-    return await requester.put(`${BASE_URL}/${itemId}`, itemData)
+    return await requester.put(`${BASE_URL}/${itemId}/edit`, itemData)
 }

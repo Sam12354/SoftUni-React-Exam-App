@@ -59,6 +59,7 @@ routes.get('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
     const itemId = req.params.itemId 
     try {
         const item = await itemService.getById(itemId).lean()
+        
         res.json(item)
     } catch (err) {
         res.status(400).json({ error: getErrorMassage(err) });
@@ -67,10 +68,10 @@ routes.get('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
 
 routes.put('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
     const itemId = req.params.itemId 
-    const item = req.body
+    const body = req.body
     try {
-        await itemService.edit(itemId, item)
-        res.sendStatus(204)
+        const item = await itemService.edit(itemId, body)
+        res.json(item)
     } catch (err) {
         res.status(400).json({ error: getErrorMassage(err) });
     }

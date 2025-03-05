@@ -1,6 +1,8 @@
 import { useNavigate, useParams } from "react-router"
 import { useGetOneItem } from "../../hooks/useService"
 import { useForm } from "../../hooks/useForm"
+import { getOne, update } from "../../api/api"
+import { useEffect, useState } from "react"
 
 const initialValues = {
     title: '',
@@ -16,13 +18,17 @@ export default function EditProduct() {
     const { itemId } = useParams()
     const [ item ] = useGetOneItem(itemId)
 
-    const { changeHandler, onSubmit, values } = useForm(
-        { ...initialValues, ...item }, 
-        async (values) => {
-            await update(itemId, values);
-            navigate(`/${itemId}`); // da go doopravq
+    const { changeHandler, onSubmit, values, changeValues } = useForm(Object.assign(initialValues, item), async (values) => {
+        await update(itemId, values)
+
+        navigate(`/${itemId}`);
+    }) 
+
+    useEffect(() => {
+        if (item?.item) { 
+            changeValues({ ...initialValues, ...item.item }); 
         }
-    );
+    }, [item]);
 
     return (
         <section className="page-section bg-light d-flex align-items-center justify-content-center vh-100"
@@ -67,7 +73,7 @@ export default function EditProduct() {
                                     className="form-control" 
                                     id="image" 
                                     name="image" 
-                                    required placeholder="Paste an image URL" 
+                                    required 
                                     />
                                 </div>
                                 <div className="mb-3">

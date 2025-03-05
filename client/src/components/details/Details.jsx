@@ -41,7 +41,7 @@ export default function Details() {
                                 <div className="d-flex gap-3">
                                     {isOwner ? (
                                         <>
-                                            <Link to='#'>
+                                            <Link to={`/${item._id}/edit`}>
                                                 <button className="btn btn-warning btn-xl text-uppercase mt-3" type="button">
                                                     <i className="fas fa-edit me-1"></i> Edit
                                                 </button>
