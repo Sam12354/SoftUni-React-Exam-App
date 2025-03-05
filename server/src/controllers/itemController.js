@@ -59,22 +59,20 @@ routes.get('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
     const itemId = req.params.itemId 
     try {
         const item = await itemService.getById(itemId).lean()
-        res.render('item/edit', { item ,title: 'Edit Page' })
+        res.json(item)
     } catch (err) {
-        const error = getErrorMassage(err)
-        res.render('item/create', { title: 'Edit Page', error })
+        res.status(400).json({ error: getErrorMassage(err) });
     }
 })
 
-routes.post('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
+routes.put('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
     const itemId = req.params.itemId 
     const item = req.body
     try {
         await itemService.edit(itemId, item)
-        res.redirect(`/item/${itemId}/details`)
+        res.sendStatus(204)
     } catch (err) {
-        const error = getErrorMassage(err)
-        res.render('item/create', { item, title: 'Edit Page', error })
+        res.status(400).json({ error: getErrorMassage(err) });
     }
 })
 
