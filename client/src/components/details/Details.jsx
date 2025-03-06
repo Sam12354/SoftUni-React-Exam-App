@@ -1,15 +1,28 @@
 import { useNavigate, useParams } from "react-router-dom"
 import { useGetOneItem } from "../../hooks/useService"
-import { remove } from "../../api/api"
+import { like, remove } from "../../api/api"
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Details() {
-    
+
+    const [isBought, setIsBought] = useState(false);
     const { itemId } = useParams()
     const [data] = useGetOneItem(itemId);
+
     const item = data?.item || {};
     const isOwner = data?.isOwner || false;
-    
+
+    const itemBuyHandler = async () => {
+        try {
+            await like(itemId)
+            
+            setIsBought(true)
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
     const navigate = useNavigate()
 
     const itemDeleteHandler = async () => {
@@ -46,15 +59,24 @@ export default function Details() {
                                                     <i className="fas fa-edit me-1"></i> Edit
                                                 </button>
                                             </Link>
-                                            <button onClick={itemDeleteHandler} className="btn btn-danger btn-xl text-uppercase mt-3" type="button">                                               
+                                            <button onClick={itemDeleteHandler} className="btn btn-danger btn-xl text-uppercase mt-3" type="button">
                                                 <i className="fas fa-trash me-1"></i> Delete
                                             </button>
                                         </>
-                                        ) : (
-                                            <button className="btn btn-success btn-xl text-uppercase mt-3" type="button">
-                                                <i className="fas fa-shopping-cart me-1"></i> Buy
-                                            </button>
-                                        )
+                                    ) : (
+                                        <>
+                                            {isBought ? (
+                                                <div className="alert alert-success text-uppercase mt-3" style={{ fontWeight: 'bold', fontSize: '1.5rem', padding: '0.5rem 1.5rem', borderRadius: '0.25rem', textAlign: 'center' }}>
+                                                    Item(s) have been successfully added to your cart.
+                                                </div>
+                                            ) : (
+                                                <button onClick={itemBuyHandler} className="btn btn-success btn-xl text-uppercase mt-3" type="button">
+                                                    <i className="fas fa-shopping-cart me-1"></i> Buy
+                                                </button>
+                                            )
+                                            }
+                                        </>
+                                    )
                                     }
                                 </div>
                             </div>

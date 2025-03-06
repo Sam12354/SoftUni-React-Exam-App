@@ -32,12 +32,12 @@ export const itemService = {
         return Item.findById(itemId).populate('userList')
     },
 
-    // like(itemId, userId){
-    //     return Item.updateOne(
-    //         { _id: itemId },
-    //         { $addToSet: { userList: userId } }
-    //     )
-    // },
+    like(itemId, userId){
+        return Item.updateOne(
+            { _id: itemId },
+            { $addToSet: { userList: userId } }
+        )
+    },
 
     getByOwner(ownerId) {
         return Item.find({ owner: ownerId });

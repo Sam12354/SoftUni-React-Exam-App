@@ -26,3 +26,7 @@ export const remove = async (itemId) => {
 export const update = async (itemId, itemData) => {
     return await requester.put(`${BASE_URL}/${itemId}/edit`, itemData)
 }
+
+export const like = async (itemId) => {
+    return await requester.get(`${BASE_URL}/${itemId}/like`);
+};

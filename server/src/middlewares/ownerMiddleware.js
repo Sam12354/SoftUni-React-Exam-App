@@ -19,7 +19,7 @@ export const checkIsNotOwner = async (req, res, next) => {
         return next()
     }
 
-    res.status(404).send('Not authorized')
+    res.status(403).json({ message: 'Not authorized' });
 }
 
 export const checkIsLiked = async (req, res, next) => {
@@ -29,10 +29,10 @@ export const checkIsLiked = async (req, res, next) => {
     try {
         const item = await itemService.getItem(itemId)
         if(item.userList.includes(userId)){
-            res.redirect(`/item/${itemId}/details`)
+            return res.status(204).send()
         }
         next()
     } catch (err) {
-        console.log(err);
+        res.status(403).json({ message: 'Not authorized' });
     }
 }

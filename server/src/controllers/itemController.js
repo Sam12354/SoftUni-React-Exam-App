@@ -2,7 +2,7 @@ import { Router } from "express";
 import { itemService } from "../services/itemService.js";
 import { getErrorMassage } from "../utils/errorUtils.js";
 import { isAuth } from "../middlewares/authMiddleware.js";
-import { checkIsOwner } from "../middlewares/ownerMiddleware.js";
+import { checkIsLiked, checkIsNotOwner, checkIsOwner } from "../middlewares/ownerMiddleware.js";
 import { getAllUsersByIds } from "../services/authService.js";
 
 const routes = Router()
@@ -39,11 +39,14 @@ routes.get('/:itemId', async (req, res) => {
     
     const isOwner = item.owner == req.user?._id
 
-    res.json({ item, isOwner });
+    const isLiked = item.userList.some(userId => userId == req.user?._id)
+
+    res.json({ item, isOwner, isLiked });
 
 })
 
 routes.delete('/:itemId', isAuth, checkIsOwner, async (req, res) => {
+    // delete
 
     const itemId = req.params.itemId 
     try {
@@ -77,18 +80,18 @@ routes.put('/:itemId/edit', isAuth, checkIsOwner, async (req, res) => {
     }
 })
 
-// routes.get('/:itemId/like', checkIsNotOwner, checkIsLiked, isAuth, async (req, res) => {
-//     const itemId = req.params.itemId 
-//     const userId = req.user._id 
+routes.get('/:itemId/like', checkIsNotOwner, checkIsLiked, isAuth, async (req, res) => {
+    
+    const itemId = req.params.itemId 
+    const userId = req.user._id 
 
-//     try {
-//         await itemService.like(itemId, userId)
-//         res.redirect(`/item/${itemId}/details`)
-//     } catch (err) {
-//         const error = getErrorMassage(err)
-//         res.render('item/details', { title: 'Details Page', error })
-//     }
-// })
+    try {
+        const updatedItem = await itemService.like(itemId, userId)
+        res.json(updatedItem);
+    } catch (err) {
+        res.status(400).json({ error: getErrorMassage(err) });
+    }
+})
 
 routes.get('/:itemId/profile', isAuth, checkIsOwner, async (req, res) => {
 
