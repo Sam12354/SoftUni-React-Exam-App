@@ -26,7 +26,7 @@ export default function EditProduct() {
 
     useEffect(() => {
         if (item?.item) { 
-            changeValues({ ...initialValues, ...item.item }); 
+            changeValues({ ...item.item }); 
         }
     }, [item]);
 
