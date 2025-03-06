@@ -10,8 +10,6 @@ export default function PersonalCatalog() {
     const [items] = useGetAllItems();
 
     const ownerItems = items.filter(item => item.owner === userId);
-    console.log(ownerItems);
-
 
     return (
         <section className="page-section personal-catalog">
@@ -26,7 +24,9 @@ export default function PersonalCatalog() {
                     {ownerItems.length ?
                         ownerItems.map(item => <PersonalCatalogItem key={item._id} {...item} />)
                         :
-                        <h1 className="text-center text-muted">No products available at the moment. Check back later!</h1>
+                        <div className="pt-5"> 
+                            <h1 className="text-center text-muted">You haven't uploaded any products yet</h1>
+                        </div>
                     }
                 </div>
             </div>
