@@ -11097,6 +11097,17 @@ header.masthead .masthead-heading {
   object-fit: cover;
 }
 
+.portfolio-item img {
+  width: 392px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.portfolio-caption-heading, .portfolio-caption-subheading {
+  font-weight: bold;
+  font-size: 1.50rem; 
+}
+
 /* //tuk */
 
 .timeline {
