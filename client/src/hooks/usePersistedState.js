@@ -13,11 +13,11 @@ export default function usePersistedState(key, initialState) {
 
     useEffect(() => {
         async function fetchUser() {
-            try {
-                const user = await requester.get("http://localhost:7777/me");
+            const user = await requester.get("http://localhost:7777/me");
+            if (user) { 
                 setState(user);
                 localStorage.setItem(key, JSON.stringify(user));
-            } catch {
+            } else {
                 setState(null);
                 localStorage.removeItem(key);
             }
