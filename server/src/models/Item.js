@@ -5,16 +5,19 @@ const itemSchema = new Schema ({
     title: {
         type: String,
         required: [true, 'Title field is required'],
+        minLength: [5, 'Title must be at least 5 characters long']
     },
 
     brand: {
         type: String,
         required: [true, 'Brand field is required'],
+        minLength: [2, 'Brand must be at least 2 characters long']
     },
 
     price: {
         type: Number,
         required: [true, 'Price field is required'],
+        min: [0.1, 'Price must be a positive number']
     },
 
     image: {
@@ -25,6 +28,7 @@ const itemSchema = new Schema ({
     description: {
         type: String,
         required: [true, 'Description field is required'],
+        minLength: [10, 'Description must be at least 10 characters long']
     },
 
     userList: [{
