@@ -19,7 +19,7 @@ authController.post('/register', isGuest, async (req, res) => {
         res.cookie(AUTH_COOKIE_NAME, token, { httpOnly: true })
         res.json({ token, _id, email: userEmail });
     } catch (err) {
-        res.status(400).json({ error: getErrorMassage(err) });
+        res.status(409).json({ error: getErrorMassage(err) });
     }
 
 })

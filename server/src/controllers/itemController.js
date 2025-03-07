@@ -93,16 +93,16 @@ routes.get('/:itemId/like', checkIsNotOwner, checkIsLiked, isAuth, async (req, r
     }
 })
 
-routes.get('/:itemId/profile', isAuth, checkIsOwner, async (req, res) => {
+// routes.get('/:itemId/profile', isAuth, checkIsOwner, async (req, res) => {
 
-    try {
-        const items = await itemService.getByOwner(req.user?._id).lean()
-        res.render('item/profile', { items, title: 'My Profile' })
-    } catch (err) {
-        const error = getErrorMassage(err)
-        res.render('item/create', { title: 'My Profile', error })
-    }
+//     try {
+//         const items = await itemService.getByOwner(req.user?._id).lean()
+//         res.render('item/profile', { items, title: 'My Profile' })
+//     } catch (err) {
+//         const error = getErrorMassage(err)
+//         res.render('item/create', { title: 'My Profile', error })
+//     }
 
-})
+// })
 
 export default routes

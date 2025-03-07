@@ -21,7 +21,7 @@ export default function Register() {
             await register(values.email, values.password, values.rePass)
             navigate('/')
         } catch (err) {
-            setError(err.message);
+            console.log(err.error);
         }
     } 
 
@@ -37,6 +37,11 @@ export default function Register() {
                 <div className="row justify-content-center">
                     <div className="col-lg-6">
                         <div className="card shadow p-4 bg-white">
+                            {error && (
+                                <div className="alert alert-danger text-center mb-3">
+                                    {error}
+                                </div>
+                            )}
                             <form onSubmit={onSubmit}>
                                 <div className="mb-3">
                                     <label htmlFor="email" className="form-label">Email Address</label>
