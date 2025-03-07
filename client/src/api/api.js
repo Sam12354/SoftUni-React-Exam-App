@@ -1,4 +1,4 @@
-import requester from "./requester.js";
+import requester from "./requester";
 
 const BASE_URL = "http://localhost:7777/item"
 
