@@ -11,6 +11,7 @@ import Sell from "./components/Sell/Sell"
 import { AuthContextProvider } from "./contexts/AuthContext"
 import RouteGuard from "./components/common/RouteGuard"
 import Logout from "./components/logout/Logout"
+import GuestGuard from "./components/common/GuestGuard"
 
 function App() {
     return (
@@ -19,8 +20,8 @@ function App() {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<GuestGuard> <Login /> </GuestGuard>} />
+                    <Route path="/register" element={<GuestGuard> <Register /> </GuestGuard>} />
                     <Route path="/catalog" element={<Catalog />} />
                     <Route path="/logout" element={<RouteGuard> <Logout /> </RouteGuard>} />
                     <Route path="/create" element={<RouteGuard> <Sell /> </RouteGuard>} />
