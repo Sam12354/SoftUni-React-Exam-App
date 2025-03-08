@@ -151,22 +151,27 @@ The application uses **Context API** to manage global authentication state acros
 
 ### **Route Guards:**
 
-The application has route guards to manage access for different users.
+The application has route guards to control access based on authentication state.
+Guest Access:
 
-    Guest Access: Unauthenticated users (guests) can access the following pages without any restrictions:
-        Home
-        Register
-        Login
-        Catalog
-        Details (view items with no buttons for editing or deleting)
+Unauthenticated users can access the following pages:
 
-    User Access: Authenticated users (logged in) can access the following pages, along with additional features:
-        Home
-        Catalog (with full management capabilities)
-        Logout
-        Details (view items with Edit and Delete buttons if the user is the owner, or Buy button if they are not the owner)
-        Create (to add new items)
-        Edit (to modify their existing items)
-        Personal Space (to manage their own catalog)
+    Home
+    Register
+    Login
+    Catalog
+    Details (view-only, no edit/delete buttons)
 
-This setup ensures that guests can view content but cannot make any changes, while logged-in users have full access to manage their items.
+User Access:
+
+Authenticated users can access additional features:
+
+    Home
+    Catalog (with full management capabilities)
+    Logout
+    Details (shows Edit and Delete buttons if the user is the owner, otherwise a Buy button)
+    Create (add new items)
+    Edit (modify existing items)
+    Personal Space (manage user-owned items)
+
+This setup ensures that guests can browse but not modify content, while logged-in users have full management access.
