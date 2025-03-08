@@ -5,20 +5,24 @@
 ### **Server Setup:**
 1. Navigate to the server directory:
 
+    ```bash
     cd server
     ```
 2. Install the server dependencies:
 
+    ```bash
     npm install
     ```
 
 ### **Client Setup:**
 1. Navigate to the client directory:
 
+    ```bash
     cd client
     ```
 2. Install the client dependencies:
 
+    ```bash
     npm install
     ```
 
@@ -54,16 +58,19 @@ The server handles the API requests and is set to run on `http://localhost:7777`
 
 1. Open a terminal and navigate to the `server` directory:
 
+    ```bash
     cd server
     ```
 
 2. Install the server dependencies (if you haven't already):
 
+    ```bash
     npm install
     ```
 
 3. Start the server by running the following command:
 
+    ```bash
     npm run dev
     ```
 
@@ -75,16 +82,19 @@ The client is a React-based front-end application that communicates with the ser
 
 1. Open a new terminal and navigate to the `client` directory:
 
+    ```bash
     cd client
     ```
 
 2. Install the client dependencies (if you haven't already):
 
+    ```bash
     npm install
     ```
 
 3. Start the client by running the following command:
 
+    ```bash
     npm run dev
     ```
 
