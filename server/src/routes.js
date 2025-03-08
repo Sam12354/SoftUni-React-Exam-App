@@ -11,8 +11,9 @@ routes.use('/auth', authController)
 routes.use('/item', itemController)
 routes.use('/me', userController)
 
-// routes.all('*', (req, res) => {
-//     res.render('home/404', { title: '404 page' })
-// })
+routes.all('*', (req, res) => {
+    res.status(404).json({ error: "Not Found" });
+})
+// mahnah komentara na routes.all
 
 export default routes

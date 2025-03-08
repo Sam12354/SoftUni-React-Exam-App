@@ -12,6 +12,7 @@ import { AuthContextProvider } from "./contexts/AuthContext"
 import RouteGuard from "./components/common/RouteGuard"
 import Logout from "./components/logout/Logout"
 import GuestGuard from "./components/common/GuestGuard"
+import NotFound from "./components/page-404/NotFound"
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                     <Route path="/personalCatalog" element={<RouteGuard> <PersonalCatalog /> </RouteGuard>} />
                     <Route path="/:itemId/edit" element={<RouteGuard> <EditProduct /> </RouteGuard>} />
                     <Route path="/:itemId" element={<Details />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>
         </AuthContextProvider>

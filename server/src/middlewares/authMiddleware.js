@@ -1,5 +1,6 @@
 import { AUTH_COOKIE_NAME } from "../constants.js"
 import jwt from "../lib/jwt.js"
+import { Types } from 'mongoose';
 
 export const authMiddleware = async (req, res, next) => {
 
@@ -64,3 +65,15 @@ export const isGuest = (req, res, next) => {
     res.redirect('/')
 
 }
+
+// za problema s cors
+export const validateObjectId = (req, res, next) => {
+    const { itemId } = req.params;
+
+    if (!Types.ObjectId.isValid(itemId)) {
+        return res.status(400).json({ error: 'Invalid itemId format' });
+    }
+
+    next();
+};
+// za problema s cors 24 character string v mongoDB trqbva da e id
