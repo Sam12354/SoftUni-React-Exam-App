@@ -122,6 +122,7 @@ Here are the public parts of the application:
 - ✅ **Details Page**
 
 
-## Public Part 
+
+## Private Part 
 
 - 🔒 **Personal Catalog/Profile**: A space where users can view and manage their own products.
