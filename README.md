@@ -126,3 +126,18 @@ Here are the public parts of the application:
 ## Private Part 
 
 - 🔒 **Personal Catalog/Profile**: A space where users can view and manage their own products.
+
+
+## Features and Implementation 🛠️
+
+### **Custom Hooks:**
+In the application, custom hooks are used to handle various tasks like authentication, form management, and CRUD operations for products:
+
+- **useLogin**: Handles user login and updates the authentication state.
+- **useRegister**: Handles user registration and updates the authentication state.
+- **useLogout**: Handles user logout by clearing authentication data.
+- **useForm**: Manages form states and submission.
+- **usePersistedState**: Persists authentication state in `localStorage` and fetches user data.
+- **useGetAllItems**: Fetches and displays all items from the server.
+- **useGetOneItem**: Fetches details of a specific item and handles error states.
+- **useCreateItem**: Handles creating a new product.
