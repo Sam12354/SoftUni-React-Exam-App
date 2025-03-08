@@ -107,12 +107,8 @@ The client is a React-based front-end application that communicates with the ser
    Make sure you have both terminals open and executing the `npm run dev` command in their respective directories (`client` and `server`).
 
 
-## Online Store - **[Your Project Name]**
+## Online Store - [Go to the Application](http://localhost:5173/)
 
-Welcome to **[Your Project Name]**, an online store where you can browse and manage products.
 
-### **Click below to visit the application:**
-
-[Go to the Application](http://localhost:5173/)
 
 
