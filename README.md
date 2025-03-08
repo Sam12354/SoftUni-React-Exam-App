@@ -166,13 +166,13 @@ User Access:
 
 Authenticated users can access additional features:
 
-    Home
-    Catalog (with full management capabilities)
-    Logout
-    Details (shows Edit and Delete buttons if the user is the owner, otherwise a Buy button)
-    Create (add new items)
-    Edit (modify existing items)
-    Personal Space (manage user-owned items)
+- **Home**
+- **Catalog (with full management capabilities)**
+- **Logout**
+- **Details (shows Edit and Delete buttons if the user is the owner, otherwise a Buy button)**
+- **Create (add new items)**
+- **Edit (modify existing items)**
+- **Personal Space (manage user-owned items)**
 
 This setup ensures that guests can browse but not modify content, while logged-in users have full management access.
 
@@ -181,12 +181,12 @@ This setup ensures that guests can browse but not modify content, while logged-i
 
 The application is built using React components to create a modular and reusable UI structure. Each feature and page is encapsulated in its own component for better maintainability and scalability.
 
-    Component-Based Structure: The app consists of separate components for different pages and functionalities, ensuring a clean and structured codebase.
-    Client-Side Routing: The app utilizes React Router to enable seamless navigation without reloading the page.
-    Defined Routes: Navigation between different pages is handled in the App component with routes such as:
-    ✅ Public Routes: /catalog
-    ✅ Guest-Only Routes: /login, /register
-    🔒 Protected Routes (Authenticated Users Only): /create, /:itemId/edit, /personalCatalog
-    🔄 Dynamic Routes: /:itemId (fetching item details dynamically)
+- **Component-Based Structure: The app consists of separate components for different pages and functionalities, ensuring a clean and structured codebase.**
+- **Client-Side Routing: The app utilizes React Router to enable seamless navigation without reloading the page.**
+- **Defined Routes: Navigation between different pages is handled in the App component with routes such as:**
+- **✅ Public Routes: /catalog**
+- **✅ Guest-Only Routes: /login, /register**
+- **🔒 Protected Routes (Authenticated Users Only): /create, /:itemId/edit, /personalCatalog**
+- **🔄 Dynamic Routes: /:itemId (fetching item details dynamically)**
 
 This enhances the user experience by making navigation faster and smoother while keeping the application lightweight and efficient.
