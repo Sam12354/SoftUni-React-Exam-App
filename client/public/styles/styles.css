@@ -11003,6 +11003,8 @@ header.masthead .masthead-heading {
     margin-bottom: 4rem;
   }
 }
+
+
 #portfolio .portfolio-item {
   max-width: 26rem;
   margin-left: auto;
@@ -11312,7 +11314,34 @@ header.masthead .masthead-heading {
     flex-direction: column;
     gap: 10px;
   }
+  
 }
+
+@media (max-width: 768px) {
+  .details-content {
+    text-align: center;
+    padding: 20px;
+    margin-top: 80px; /* Add margin to push the content down */
+  }
+
+  .details-content img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .details-content .d-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .product-name {
+    font-size: 18px;  /* Adjust the size as needed */
+    font-weight: bold;  /* Optional: Make the name stand out more */
+    margin-top: 10px;
+    text-align: center; /* Ensures it's centered on mobile */
+  }
+}
+
 
 
 section#contact {
