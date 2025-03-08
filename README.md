@@ -141,3 +141,32 @@ In the application, custom hooks are used to handle various tasks like authentic
 - **useGetAllItems**: Fetches and displays all items from the server.
 - **useGetOneItem**: Fetches details of a specific item and handles error states.
 - **useCreateItem**: Handles creating a new product.
+
+
+### **Context API:**
+The application uses **Context API** to manage global authentication state across the app. The authentication context is shared with all components to handle user login, registration, and logout.
+
+- **AuthContext**: This context holds authentication data such as `userId`, `email`, and `isAuthenticated` and provides methods for changing authentication state and logging out.
+
+
+### **Route Guards:**
+
+The application has route guards to manage access for different users.
+
+    Guest Access: Unauthenticated users (guests) can access the following pages without any restrictions:
+        Home
+        Register
+        Login
+        Catalog
+        Details (view items with no buttons for editing or deleting)
+
+    User Access: Authenticated users (logged in) can access the following pages, along with additional features:
+        Home
+        Catalog (with full management capabilities)
+        Logout
+        Details (view items with Edit and Delete buttons if the user is the owner, or Buy button if they are not the owner)
+        Create (to add new items)
+        Edit (to modify their existing items)
+        Personal Space (to manage their own catalog)
+
+This setup ensures that guests can view content but cannot make any changes, while logged-in users have full access to manage their items.
