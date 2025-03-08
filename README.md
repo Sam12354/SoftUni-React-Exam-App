@@ -156,7 +156,7 @@ Guest Access:
 
 Unauthenticated users can access the following pages:
 
-    Home
+    - **Home**
     Register
     Login
     Catalog
@@ -184,9 +184,9 @@ The application is built using React components to create a modular and reusable
     Component-Based Structure: The app consists of separate components for different pages and functionalities, ensuring a clean and structured codebase.
     Client-Side Routing: The app utilizes React Router to enable seamless navigation without reloading the page.
     Defined Routes: Navigation between different pages is handled in the App component with routes such as:
-        ✅ Public Routes: /catalog
-        ✅ Guest-Only Routes: /login, /register
-        🔒 Protected Routes (Authenticated Users Only): /create, /:itemId/edit, /personalCatalog
-        🔄 Dynamic Routes: /:itemId (fetching item details dynamically)
+    ✅ Public Routes: /catalog
+    ✅ Guest-Only Routes: /login, /register
+    🔒 Protected Routes (Authenticated Users Only): /create, /:itemId/edit, /personalCatalog
+    🔄 Dynamic Routes: /:itemId (fetching item details dynamically)
 
 This enhances the user experience by making navigation faster and smoother while keeping the application lightweight and efficient.
