@@ -120,3 +120,8 @@ Here are the public parts of the application:
 - ✅ **Login Page**
 - ✅ **Catalog Page**
 - ✅ **Details Page**
+
+
+## Public Part 
+
+- 🔒 **Personal Catalog/Profile**: A space where users can view and manage their own products.
