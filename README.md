@@ -179,7 +179,7 @@ This setup ensures that guests can browse but not modify content, while logged-i
 
 ### **React Components & Client-Side Routing:**
 
-The application is built using React components to create a modular and reusable UI structure. Each feature and page is encapsulated in its own component for better maintainability and scalability.
+The application is built using React components. Each feature and page is encapsulated in its own component for better maintainability and scalability.
 
 - **Component-Based Structure: The app consists of separate components for different pages and functionalities, ensuring a clean and structured codebase.**
 - **Client-Side Routing: The app utilizes React Router to enable seamless navigation without reloading the page.**
