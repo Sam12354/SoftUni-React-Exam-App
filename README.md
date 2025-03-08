@@ -156,11 +156,11 @@ Guest Access:
 
 Unauthenticated users can access the following pages:
 
-    - **Home**
-    Register
-    Login
-    Catalog
-    Details (view-only, no edit/delete buttons)
+- **Home**
+- **Register**
+- **Login**
+- **Catalog**
+- **Details (view-only, no edit/delete buttons)**
 
 User Access:
 
