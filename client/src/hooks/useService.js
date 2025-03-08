@@ -19,16 +19,25 @@ export function useGetAllItems() {
 
 export function useGetOneItem(itemId) {
     const [item, setItem] = useState({})
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchData() {
-            const result = await getOne(itemId);
-            setItem(result);
-        }
+            try {
+                const result = await getOne(itemId);
+                setItem(result);
+                setError(null);
+            }catch(err) {
+                    setError("Item not found or invalid route.");
+                    setItem(null);
+                    navigate("*")
+                }
+            }
         fetchData();
-    }, [itemId]);
+        }, [itemId]);
 
-    return [item, setItem]
+    return [item, setItem, error]
 }
 
 export function useCreateItem() {

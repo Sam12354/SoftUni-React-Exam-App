@@ -14,6 +14,5 @@ routes.use('/me', userController)
 routes.all('*', (req, res) => {
     res.status(404).json({ error: "Not Found" });
 })
-// mahnah komentara na routes.all
 
 export default routes
