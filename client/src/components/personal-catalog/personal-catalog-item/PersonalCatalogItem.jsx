@@ -5,9 +5,10 @@ export default function PersonalCatalogItem({ _id, title, price, image }) {
 
     const navigate = useNavigate()
 
-    const itemDeleteHandler = async () => {
+    const itemDeleteHandler = async (itemId) => {
         try {
             await remove(itemId)
+            
             navigate(`/catalog`);
         } catch (err) {
             console.log(err.message)
@@ -24,7 +25,7 @@ export default function PersonalCatalogItem({ _id, title, price, image }) {
                     <Link to={`/${_id}/edit`}>
                         <button className="btn btn-primary btn-lg mt-2">Edit</button>
                     </Link>
-                    <button onClick={itemDeleteHandler} className="btn btn-danger btn-lg mt-2 ms-2">Delete</button>
+                    <button onClick={() => itemDeleteHandler(_id)} className="btn btn-danger btn-lg mt-2 ms-2">Delete</button>
                 </div>
             </div>
         </div>
