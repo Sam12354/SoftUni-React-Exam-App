@@ -29,7 +29,7 @@
 
 ## 2. Set Up Environment Variables
 
-Since this project utilizes cookies for authentication, you need to create a `.env` file to store sensitive information, such as the `JWT_TOKEN`.
+Since this project utilizes cookies for authentication, you need to create a `.env` file to store sensitive information, such as the `JWT_SECRET`.
 
 ### **Steps to Set Up the .env File:**
 
@@ -38,7 +38,7 @@ Since this project utilizes cookies for authentication, you need to create a `.e
 2. Add the following environment variable to the `.env` file:
 
     ```env
-    JWT_TOKEN=your_secret_key_here
+    JWT_SECRET=your_secret_key_here
     ```
 
    Replace `your_secret_key_here` with a strong, secure secret key used for signing JWT tokens.

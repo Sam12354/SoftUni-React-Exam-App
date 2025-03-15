@@ -6,6 +6,7 @@ export const useForm = (initialValues, onSubmitHandler) => {
     useEffect(() => {
         setValues(initialValues)
     }, [initialValues])
+    // vseki put kato useEffect [initialValues] se smeni useEffect 6te se triggerne
 
     const changeHandler = (e) => {
         setValues(state => ({...state, [e.target.name]: e.target.value}));

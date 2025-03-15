@@ -12,6 +12,7 @@ export const AuthContext = createContext({
 
 export function AuthContextProvider({ children }) {
     const [authState, setAuthState] = usePersistedState('auth', null);
+    // setAuthState idva ot updateState v usePersistedState
 
     useEffect(() => {
         async function fetchUser() {
