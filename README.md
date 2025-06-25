@@ -48,6 +48,7 @@ Since this project utilizes cookies for authentication, you need to create a `.e
 ### **Important Note:**
 
 - The `.env` file is **not** included in version control (e.g., Git) by default. It’s important to ensure that this file is added to `.gitignore` to prevent accidental exposure of sensitive data.
+File must be created in Server folder.
 
 
 ## 3. Running the Application
